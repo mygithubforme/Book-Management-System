@@ -1,0 +1,27 @@
+<% @page_title="Admin" %>
+<div class="user index">
+	<h2>Admin</h2>
+
+	<%= link_to("Add new Admin users", {:action => 'new'}, :class => 'action new') %>
+
+	<div><%= pluralize(@adminusers.size,'Admin user')%> found</div>
+	<table class="lsiting" summary="Admin users list">
+		<tr class="header">
+			<th>Username</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Actions</th>
+		</tr>
+		<% @adminusers.each do |adminuser| %>
+		<tr> 
+			<td><%= adminuser.username %></td>
+			<td><%= adminuser.name %></td>
+			<td%><%= "ffd" %></td>
+			<td class="actions">
+				<%= link_to("Edit", {:action => 'edit', :id => adminuser.id}, :class =>'action edit') %>
+                <%= link_to("Delete", {:action => 'delete', :id => adminuser.id}, :class =>'action delete') %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+</div>
